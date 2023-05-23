@@ -45,10 +45,9 @@ const foodByChinaList = async () => {
       id: food.idMeal,
     };
     foodByChina.push(objFood);
-  });   
-    
+  });    
   return foodByChina;
-}
+};
 
 const foodByAmericaList = async () => {
   const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=American');
