@@ -1,3 +1,4 @@
+/**eslint disable */
 import './styles.css';
 
 function appRender() {
