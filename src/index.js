@@ -82,10 +82,9 @@ const foodByKenyaList = async () => {
       id: food.idMeal,
     };
     foodByKenya.push(objFood);
-  });   
-    
+  });
   return foodByKenya;
-}
+};
 
 // Render Food Grid Cards
 const renderFoodGridCards = (foodList) => {
@@ -109,9 +108,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   appRender();
 
   const foodByChina = await foodByChinaList();
-//   const foodByAmerica = await foodByAmericaList();
-//   const foodByKenya = await foodByKenyaList();
+  //   const foodByAmerica = await foodByAmericaList();
+  //   const foodByKenya = await foodByKenyaList();
 
   renderFoodGridCards(foodByChina);
-
 });
