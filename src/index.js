@@ -36,10 +36,10 @@ const foodByChinaList = async () => {
   const foodByChina = [];
   chineseFoods.forEach((food) => {
     const objFood = {
-        count: foodByChina.length + 1,
-        name: food.strMeal,
-        image: food.strMealThumb,
-        id: food.idMeal
+      count: foodByChina.length + 1,
+      name: food.strMeal,
+      image: food.strMealThumb,
+      id: food.idMeal,
     };
     foodByChina.push(objFood);
   });   
@@ -55,10 +55,10 @@ const foodByAmericaList = async () => {
   const foodByAmerica = [];
   americanFoods.forEach((food) => {
     const objFood = {
-        count: foodByAmerica.length + 1,
-        name: food.strMeal,
-        image: food.strMealThumb,
-        id: food.idMeal
+      count: foodByAmerica.length + 1,
+      name: food.strMeal,
+      image: food.strMealThumb,
+      id: food.idMeal,
     };
     foodByAmerica.push(objFood);
   });   
@@ -74,10 +74,10 @@ const foodByKenyaList = async () => {
   const foodByKenya = [];
   kenyanFoods.forEach((food) => {
     const objFood = {
-        count: foodByKenya.length + 1,
-        name: food.strMeal,
-        image: food.strMealThumb,
-        id: food.idMeal
+      count: foodByKenya.length + 1,
+      name: food.strMeal,
+      image: food.strMealThumb,
+      id: food.idMeal,
     };
     foodByKenya.push(objFood);
   });   
