@@ -45,46 +45,45 @@ const foodByChinaList = async () => {
       id: food.idMeal,
     };
     foodByChina.push(objFood);
-  });    
+  });
   return foodByChina;
 };
 
-const foodByAmericaList = async () => {
-  const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=American');
-  const data = await response.json();
-  const americanFoods = data.meals;
+// const foodByAmericaList = async () => {
+//   const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=American');
+//   const data = await response.json();
+//   const americanFoods = data.meals;
 
-  const foodByAmerica = [];
-  americanFoods.forEach((food) => {
-    const objFood = {
-      count: foodByAmerica.length + 1,
-      name: food.strMeal,
-      image: food.strMealThumb,
-      id: food.idMeal,
-    };
-    foodByAmerica.push(objFood);
-  });   
-    
-  return foodByAmerica;
-}
+//   const foodByAmerica = [];
+//   americanFoods.forEach((food) => {
+//     const objFood = {
+//       count: foodByAmerica.length + 1,
+//       name: food.strMeal,
+//       image: food.strMealThumb,
+//       id: food.idMeal,
+//     };
+//     foodByAmerica.push(objFood);
+//   });
+//   return foodByAmerica;
+// };
 
-const foodByKenyaList = async () => {
-  const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=Kenyan');
-  const data = await response.json();
-  const kenyanFoods = data.meals;
+// const foodByKenyaList = async () => {
+//   const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=Kenyan');
+//   const data = await response.json();
+//   const kenyanFoods = data.meals;
 
-  const foodByKenya = [];
-  kenyanFoods.forEach((food) => {
-    const objFood = {
-      count: foodByKenya.length + 1,
-      name: food.strMeal,
-      image: food.strMealThumb,
-      id: food.idMeal,
-    };
-    foodByKenya.push(objFood);
-  });
-  return foodByKenya;
-};
+//   const foodByKenya = [];
+//   kenyanFoods.forEach((food) => {
+//     const objFood = {
+//       count: foodByKenya.length + 1,
+//       name: food.strMeal,
+//       image: food.strMealThumb,
+//       id: food.idMeal,
+//     };
+//     foodByKenya.push(objFood);
+//   });
+//   return foodByKenya;
+// };
 
 // Render Food Grid Cards
 const renderFoodGridCards = (foodList) => {
