@@ -1,182 +1,144 @@
+#  Capstone-module-2 
 <a name="readme-top"></a>
-
-<div align="center">
-  
-  <img src="wahab_icon.jpeg" alt="logo" width="140"  height="auto" />
-  <br/>
-
-  <h3><b>Microverse ToDo List Project Module 2</b></h3>
-
-</div>
-
-<!-- TABLE OF CONTENTS -->
-
-# 📗 Table of Contents
-
-- [📗 Table of Contents](#-table-of-contents)
-- [📖 Microverse ToDo List Project Module 2 ](#-microverse-todo-list-project-module-2-)
-  - [🛠 Built With ](#-built-with-)
-    - [1- Html](#1--html)
-    - [2- CSS](#2--css)
-    - [3- Javascript](#3--javascript)
-    - [4- Webpack](#4--webpack)
-    - [5- NPM](#5--npm)
-    - [Tech Stack ](#tech-stack-)
-    - [Key Features ](#key-features-)
-  - [💻 Getting Started ](#-getting-started-)
-    - [Prerequisites](#prerequisites)
-    - [1- Web Browser](#1--web-browser)
-    - [2- Code Editor](#2--code-editor)
-    - [3- Git](#3--git)
-    - [4- Node.js](#4--nodejs)
-    - [5- NPM](#5--npm-1)
-    - [6- Webpack](#6--webpack)
-    - [Setup](#setup)
-    - [Install](#install)
-    - [Usage](#usage)
-    - [Run tests](#run-tests)
-    - [Deployment](#deployment)
-  - [👥 Authors ](#-authors-)
-  - [🔭 Future Features ](#-future-features-)
-  - [🤝 Contributing ](#-contributing-)
-  - [⭐️ Show your support ](#️-show-your-support-)
-  - [🙏 Acknowledgments ](#-acknowledgments-)
-  - [📝 License ](#-license-)
+ # 📗 Table of Contents
+- [📖 About the Project](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack) 
+    - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo)
+- [💻 Getting Started](#getting-started)
+  - [Setup](#setup)
+  - [Prerequisites](#prerequisites)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Run tests](#run-tests)
+  - [Deployment](#triangular_flag_on_post-deployment)
+- [👥 Authors](#authors)
+- [🔭 Future Features](#future-features)
+- [🤝 Contributing](#contributing)
+- [⭐️ Show your support](#support)
+- [🙏 Acknowledgements](#acknowledgements)
+- [❓ FAQ (OPTIONAL)](#faq)
+- [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
-
-# 📖 Microverse ToDo List Project Module 2 <a name="about-project"></a>
-
-This is My ToDo List Project of Module 2 in Microverse which is A Dynamic and Responsive Web Page that allows the user to add, edit, and delete tasks. The user can also mark tasks as done. The user can also sort them by drag and drop.   
-
+# 📖 Capstone-module-2 <a name="about-project"></a> 
+ 
+**( Capstone-module-2 )** is a webapp built on external API. It uses the MEAL API that displays a list of food dishes. This application has 2 user interface:
+- The home page that displays the meals and 
+- The comments popup where the user is able to like any of the dishes, read more about each recipe once he clicks on   the "comments" button and is able to leave a comment about any of food he likes.
+ 
 ## 🛠 Built With <a name="built-with"></a>
 
-### 1- Html
-### 2- CSS
-### 3- Javascript
-### 4- Webpack
-### 5- NPM
-
+-  Major languages
+```bash
+- (HTML, CSS, JavaScript)
+- Webpack
+- APIs
+```
 ### Tech Stack <a name="tech-stack"></a>
-
-
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li><a>Html</a></li>
-    <li><a>Css</a></li>
-    <li><a>Javascript</a></li>
-    <li><a>NPM</a></li>
-  </ul>
-</details>
-
-
-
+- HTML
+- CSS
+- javascript
+- Webpack
+- APIs
+- Jest 
+- Gitflow
+- Version Control (GitHub)
+ 
 <!-- Features -->
-
 ### Key Features <a name="key-features"></a>
+- **Data from APIs (Meal and Involvement APIs)**
+- **Display meals**
+- **Display counters**
+- **Comments popup**
+- **JavaScript, ES6**
+- **HTML5 semantics**
+- **Webpack**
+- **Jest (testing)**
+- **Gitflow**
 
-- **Mobile Responsive**
-- **Friendly UX**
-- **Easy to use**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-<!-- GETTING STARTED -->
+<!-- LIVE DEMO -->
+## 🚀 Live Demo <a name="live-demo"></a>
+ [Coming Soon](#)
 
 ## 💻 Getting Started <a name="getting-started"></a>
-
-
-
-> To get a local copy up and running, follow these steps.
+clone from repository: https://github.com/Abdulwhbhussain/capstone-module-2.git
 
 ### Prerequisites
-
-In order to run this project you need:
-
-### 1- Web Browser
-### 2- Code Editor
-### 3- Git
-### 4- Node.js
-### 5- NPM
-### 6- Webpack
-
-
+In order to run this project you need to:
+- Install GIt
+- Install Live server VScode extension and run Go Live
+- Install a Command Line Interface to clone project-Git bash/Terminal
 
 ### Setup
+### Clone this repository  
 
-Clone this repository to your desired folder:
+```bash
+```bash
+$ git clone https://github.com/Abdulwhbhussain/capstone-module-2.git
+$ cd leader-board
 
-Run This Command:
+### Run project
 
-
-
-```sh
-  cd my-folder
-  git clone https://github.com/Abdulwhbhussain/todo-list-webpack5.git
+```bash
+$ npm install
+$ npm build
+$ npm start
 ```
 
+#### Open page in browser
+```bash
+$ runs on http://localhost:8080/
+```
 
 ### Install
-
 Install this project with:
-
-Run This Command:
-
-```sh
-  cd my-project
-  npm install
-```
-
+ 
+- VSCode
+- Git.
+- Github.
 
 ### Usage
 
-To run the project, execute the following command:
-
-> npm run start 
-
+### To run the project, execute the following command:  
+- Git clone <>
+- Install the Live server extension of the VScode and run Go Live
 
 ### Run tests
 
-> npm run test
+To run linters tests, run the following command: 
+npx hint .
+npx stylelint "**/*.{css,scss}"
+npx eslint .
 
 ### Deployment
 
-> Here is the Link to this Live Project:
-
-> https://abdulwhbhussain.github.io/todo-list-webpack5
-
+It will be deployed after merge
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- AUTHORS -->
-
-## 👥 Authors <a name="authors"></a>
-
-👤 **Abdul Wahab**
-
+## 👥 Author <a name="author"></a> 
+- Enobong Isong
+ 
+👤 **Author1**
 - GitHub: [@githubhandle](https://github.com/Abdulwhbhussain)
-- Twitter: [@twitterhandle](https://twitter.com/AbdulWhbHussain)
+- Twitter: [@twitterhandle]( https://twitter.com/AbdulWhbHussain)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdulwhbhussain)
 
-👤 **Esmatullah Qadeemi**
+👤 **Author2**
+- GitHub: [@githubhandle](https://github.com/Enoisong)
+- Twitter: [@twitterhandle](https://twitter.com/Enobongmisong)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/enobong-isong/)
 
-- GitHub: [@githubhandle](https://github.com/Esmatullah12)
-- Twitter: [@twitterhandle](https://twitter.com/Esmatullah173)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/esmatullah-qadeemi-b9951821b/)
-
-
-<!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- Add/Remove Todo items
-- User Authentication/Authorization
-- Local Storage and User Profile
+-   **[Improved User Interface]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -184,32 +146,32 @@ To run the project, execute the following command:
 
 ## 🤝 Contributing <a name="contributing"></a>
 
+Contributions, issues, as well as feature requests are welcome!
+
 Feel free to check the [issues page](../../issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- SUPPORT -->
-
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project Leave A Star.
+If you like this project, give us a ⭐️ star!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ACKNOWLEDGEMENTS -->
-
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Microverse and The Code Reviewers of This Project for giving 
-Reviews and Feedback Regarding This Project.
+-	Thanks to the Microverse team for the great curriculum.
+-	Thanks to the Code Reviewer(s) for the insightly feedbacks.
+-	A great thanks to my coding partner(s), morning session team, 
+  and  standup team for their contributions.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+ 
+## 📝 License <a name="license"></a> 
 
-<!-- LICENSE -->
-
-## 📝 License <a name="license"></a>
-
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](./MIT.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+ 
