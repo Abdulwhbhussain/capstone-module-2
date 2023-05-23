@@ -1,9 +1,8 @@
 import './styles.css';
 
 function appRender() {
-    const capstoneContainer = document.getElementsByClassName('capstone-container')[0];
-    console.log(capstoneContainer);
-    capstoneContainer.innerHTML = `<!-- Header of the Api Based Web App -->
+  const capstoneContainer = document.getElementsByClassName('capstone-container')[0];
+  capstoneContainer.innerHTML = `<!-- Header of the Api Based Web App -->
     <header class="header-container">
       <!-- Logo of the Api Based Web App -->
       <div class="logo">
@@ -30,69 +29,69 @@ function appRender() {
 }
 
 const foodByChinaList = async () => {
-    const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=Chinese');
-    const data = await response.json();
-    const chineseFoods = data.meals;
+  const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=Chinese');
+  const data = await response.json();
+  const chineseFoods = data.meals;
 
-    const foodByChina = [];
-    chineseFoods.forEach((food) => {
-        const objFood = {
-            count: foodByChina.length + 1,
-            name: food.strMeal,
-            image: food.strMealThumb,
-            id: food.idMeal
-        };
-        foodByChina.push(objFood);
-    });   
+  const foodByChina = [];
+  chineseFoods.forEach((food) => {
+    const objFood = {
+        count: foodByChina.length + 1,
+        name: food.strMeal,
+        image: food.strMealThumb,
+        id: food.idMeal
+    };
+    foodByChina.push(objFood);
+  });   
     
-    return foodByChina;
+  return foodByChina;
 }
 
 const foodByAmericaList = async () => {
-    const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=American');
-    const data = await response.json();
-    const americanFoods = data.meals;
+  const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=American');
+  const data = await response.json();
+  const americanFoods = data.meals;
 
-    const foodByAmerica = [];
-    americanFoods.forEach((food) => {
-        const objFood = {
-            count: foodByAmerica.length + 1,
-            name: food.strMeal,
-            image: food.strMealThumb,
-            id: food.idMeal
-        };
-        foodByAmerica.push(objFood);
-    });   
+  const foodByAmerica = [];
+  americanFoods.forEach((food) => {
+    const objFood = {
+        count: foodByAmerica.length + 1,
+        name: food.strMeal,
+        image: food.strMealThumb,
+        id: food.idMeal
+    };
+    foodByAmerica.push(objFood);
+  });   
     
-    return foodByAmerica;
+  return foodByAmerica;
 }
 
 const foodByKenyaList = async () => {
-    const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=Kenyan');
-    const data = await response.json();
-    const kenyanFoods = data.meals;
+  const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=Kenyan');
+  const data = await response.json();
+  const kenyanFoods = data.meals;
 
-    const foodByKenya = [];
-    kenyanFoods.forEach((food) => {
-        const objFood = {
-            count: foodByKenya.length + 1,
-            name: food.strMeal,
-            image: food.strMealThumb,
-            id: food.idMeal
-        };
-        foodByKenya.push(objFood);
-    });   
+  const foodByKenya = [];
+  kenyanFoods.forEach((food) => {
+    const objFood = {
+        count: foodByKenya.length + 1,
+        name: food.strMeal,
+        image: food.strMealThumb,
+        id: food.idMeal
+    };
+    foodByKenya.push(objFood);
+  });   
     
-    return foodByKenya;
+  return foodByKenya;
 }
 
 // Render Food Grid Cards
 const renderFoodGridCards = (foodList) => {
-    const foodGrid = document.querySelectorAll('main')[0];
-    foodList.forEach((food) => {
-        const foodCard = document.createElement('div');
-        foodCard.classList.add('food-card');
-        foodCard.innerHTML = `
+  const foodGrid = document.querySelectorAll('main')[0];
+  foodList.forEach((food) => {
+    const foodCard = document.createElement('div');
+    foodCard.classList.add('food-card');
+    foodCard.innerHTML = `
             <div class="food-card-image">
                 <img src="${food.image}" alt="${food.name}">
             </div>
@@ -100,17 +99,17 @@ const renderFoodGridCards = (foodList) => {
                 <h3>${food.name}</h3>
             </div>
         `;
-        foodGrid.appendChild(foodCard);
-    });
+    foodGrid.appendChild(foodCard);
+  });
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
-    appRender();
+  appRender();
 
-    let foodByChina = await foodByChinaList();
-    let foodByAmerica = await foodByAmericaList();
-    let foodByKenya = await foodByKenyaList();
+  const foodByChina = await foodByChinaList();
+//   const foodByAmerica = await foodByAmericaList();
+//   const foodByKenya = await foodByKenyaList();
 
-    renderFoodGridCards(foodByChina);
+  renderFoodGridCards(foodByChina);
 
 });
