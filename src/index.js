@@ -99,6 +99,7 @@ const renderFoodGridCards = (foodList) => {
                 <h3>${food.name}</h3>
             </div>
         `;
+        
     foodGrid.appendChild(foodCard);
   });
 };
