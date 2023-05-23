@@ -24,7 +24,10 @@ function appRender() {
     </main>
     <!-- Footer of the Api Based Web App -->
     <footer class="footer-container">
-      <p>© Created by Microverse under CC license</p>
+      <p>© Microverseinc Created by
+      <a href="https://github.com/Abdulwhbhussain">Abdul Wahab |</a>
+      <a href="https://github.com/Enoisong/">Enobong Isong</a>
+      under MIT License</p>
     </footer>`;
 }
 
