@@ -12,8 +12,8 @@ function appRender() {
       <!-- Navbar of The Api based web app -->
       <nav>
         <ul>
-          <li><a href="#">American(6)</a></li>
-          <li><a href="#">Chinese</a></li>
+          <li><a href="#">Chinese(12)</a></li>
+          <li><a href="#">American</a></li>
           <li><a href="#">Kenyan</a></li>
         </ul>
       </nav>
@@ -21,20 +21,7 @@ function appRender() {
     <!-- Main Content of the Api Based Web App -->
     <main>
       <!-- Section of the Api Based Web App -->
-      <h5>dummy</h5>
-      <h5>dummy</h5>
-      <h5>dummy</h5>
-      <h5>dummy</h5>
-      <h5>dummy</h5>
-      <h5>dummy</h5>
-      <h5>dummy</h5>
-      <h5>dummy</h5>
-      <h5>dummy</h5>
-      <h5>dummy</h5>
-      <h5>dummy</h5>
-      <h5>dummy</h5>
-      <h5>dummy</h5>
-      <h5>dummy</h5>
+      
     </main>
     <!-- Footer of the Api Based Web App -->
     <footer class="footer-container">
@@ -45,35 +32,88 @@ function appRender() {
     </footer>`;
 }
 
-const getFoodByAreaList = async () => {
-    const response = await fetch('www.themealdb.com/api/json/v1/1/list.php?c=list');
+const foodByChinaList = async () => {
+    const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=Chinese');
     const data = await response.json();
-    console.log(data);
-    return data;
+    const chineseFoods = data.meals;
+
+    const foodByChina = [];
+    chineseFoods.forEach((food) => {
+        const objFood = {
+            count: foodByChina.length + 1,
+            name: food.strMeal,
+            image: food.strMealThumb,
+            id: food.idMeal
+        };
+        foodByChina.push(objFood);
+    });   
+    
+    return foodByChina;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+const foodByAmericaList = async () => {
+    const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=American');
+    const data = await response.json();
+    const americanFoods = data.meals;
+
+    const foodByAmerica = [];
+    americanFoods.forEach((food) => {
+        const objFood = {
+            count: foodByAmerica.length + 1,
+            name: food.strMeal,
+            image: food.strMealThumb,
+            id: food.idMeal
+        };
+        foodByAmerica.push(objFood);
+    });   
+    
+    return foodByAmerica;
+}
+
+const foodByKenyaList = async () => {
+    const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=Kenyan');
+    const data = await response.json();
+    const kenyanFoods = data.meals;
+
+    const foodByKenya = [];
+    kenyanFoods.forEach((food) => {
+        const objFood = {
+            count: foodByKenya.length + 1,
+            name: food.strMeal,
+            image: food.strMealThumb,
+            id: food.idMeal
+        };
+        foodByKenya.push(objFood);
+    });   
+    
+    return foodByKenya;
+}
+
+// Render Food Grid Cards
+const renderFoodGridCards = (foodList) => {
+    const foodGrid = document.querySelectorAll('main')[0];
+    foodList.forEach((food) => {
+        const foodCard = document.createElement('div');
+        foodCard.classList.add('food-card');
+        foodCard.innerHTML = `
+            <div class="food-card-image">
+                <img src="${food.image}" alt="${food.name}">
+            </div>
+            <div class="food-card-title">
+                <h3>${food.name}</h3>
+            </div>
+        `;
+        foodGrid.appendChild(foodCard);
+    });
+};
+
+document.addEventListener('DOMContentLoaded', async () => {
     appRender();
 
-    let foodByAreaList = ["American","Chinese","Kenyan"];
+    let foodByChina = await foodByChinaList();
+    let foodByAmerica = await foodByAmericaList();
+    let foodByKenya = await foodByKenyaList();
 
-    fetch(`www.themealdb.com/api/json/v1/1/filter.php?a=${foodByAreaList[0]}`).then(response =>
-        response.text()).then(function(html) {
-            // Initialize the DOM parser
-            var parser = new DOMParser();
-    
-            // Parse the text
-            var doc = parser.parseFromString(html, "text/html");
-    
-            // You can now even select part of that html as you would in the regular DOM 
-            // Example:
-            // var docArticle = doc.querySelector('article').innerHTML;
-    
-            console.log(doc);
-        });
-
-
-    console.log(foodByAreaList);
-    console.log('After Data');
+    renderFoodGridCards(foodByChina);
 
 });
