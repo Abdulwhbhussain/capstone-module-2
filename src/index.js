@@ -15,7 +15,7 @@ function appRender() {
       <!-- Navbar of The Api based web app -->
       <nav>
         <ul>
-          <li><a href="#">Chinese(12)</a></li>
+          <li><a href="#">Chinese</a></li>
           <li><a href="#">American</a></li>
           <li><a href="#">Kenyan</a></li>
         </ul>
@@ -96,6 +96,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   const foodByChina = await foodByChinaList();
 
   console.log(foodByChina);
+
+  // Show items count on homepage Header
+    const foodCount = document.querySelector('nav > ul > li > a');
+    foodCount.innerHTML = `Chinese(${foodByChina.length})`;
 
   renderFoodGridCards(foodByChina);
 
