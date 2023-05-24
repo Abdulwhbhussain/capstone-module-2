@@ -1,25 +1,30 @@
 #  Capstone-module-2 
 <a name="readme-top"></a>
  # 📗 Table of Contents
-- [📖 About the Project](#about-project)
-  - [🛠 Built With](#built-with)
-    - [Tech Stack](#tech-stack) 
-    - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
-- [💻 Getting Started](#getting-started)
-  - [Setup](#setup)
-  - [Prerequisites](#prerequisites)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Run tests](#run-tests)
-  - [Deployment](#triangular_flag_on_post-deployment)
-- [👥 Authors](#authors)
-- [🔭 Future Features](#future-features)
-- [🤝 Contributing](#contributing)
-- [⭐️ Show your support](#support)
-- [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
-- [📝 License](#license)
+- [Capstone-module-2](#capstone-module-2)
+- [📗 Table of Contents](#-table-of-contents)
+- [📖 Capstone-module-2 ](#-capstone-module-2-)
+  - [🛠 Built With ](#-built-with-)
+    - [Tech Stack ](#tech-stack-)
+    - [Key Features ](#key-features-)
+  - [🚀 Live Demo ](#-live-demo-)
+  - [💻 Getting Started ](#-getting-started-)
+    - [Prerequisites](#prerequisites)
+    - [Setup](#setup)
+    - [Clone this repository](#clone-this-repository)
+    - [Run project](#run-project)
+      - [Open page in browser](#open-page-in-browser)
+    - [Install](#install)
+    - [Usage](#usage)
+    - [To run the project, execute the following command:](#to-run-the-project-execute-the-following-command)
+    - [Run tests](#run-tests)
+    - [Deployment](#deployment)
+  - [👥 Author ](#-author-)
+  - [🔭 Future Features ](#-future-features-)
+  - [🤝 Contributing ](#-contributing-)
+  - [⭐️ Show your support ](#️-show-your-support-)
+  - [🙏 Acknowledgments ](#-acknowledgments-)
+  - [📝 License ](#-license-)
 
 <!-- PROJECT DESCRIPTION -->
 # 📖 Capstone-module-2 <a name="about-project"></a> 
@@ -44,7 +49,7 @@
 - APIs
 - Jest 
 - Gitflow
-- Version Control (GitHub)
+- Version Control (Git)
  
 <!-- Features -->
 ### Key Features <a name="key-features"></a>
@@ -52,11 +57,7 @@
 - **Display meals**
 - **Display counters**
 - **Comments popup**
-- **JavaScript, ES6**
-- **HTML5 semantics**
-- **Webpack**
-- **Jest (testing)**
-- **Gitflow**
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -78,9 +79,10 @@ In order to run this project you need to:
 ### Clone this repository  
 
 ```bash
-```bash
+```bashw
 $ git clone https://github.com/Abdulwhbhussain/capstone-module-2.git
-$ cd leader-board
+$ cd capstone-module-2
+```
 
 ### Run project
 
@@ -122,7 +124,8 @@ It will be deployed after merge
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
-## 👥 Author <a name="author"></a> 
+## 👥 Author <a name="author"></a>
+- Abdul Wahab 
 - Enobong Isong
  
 👤 **Author1**
