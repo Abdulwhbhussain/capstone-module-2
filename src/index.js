@@ -1,8 +1,8 @@
 import './styles.css';
 
 const appID = 'YOYr3lMRRi289YuVJOhS';
-  const urlForLikes = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appID}/likes/`;
-  const urlForComments = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appID}/comments/`;
+const urlForLikes = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appID}/likes/`;
+const urlForComments = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appID}/comments/`;
 
 function appRender() {
   const capstoneContainer = document.getElementsByClassName('capstone-container')[0];
@@ -51,17 +51,7 @@ const foodByChinaList = async () => {
     foodByChina.push(objFood);
   });
   // get Likes from the Involvement API
-  let likesData = await fetch(urlForLikes).then((response) => response.json()).then((data) => data);
-  likesData.sort((a, b) => {
-    if(a.item_id > b.item_id) {
-        return 1;
-    }
-
-    if(a.item_id < b.item_id) {
-        return -1;
-    }
-    return 0;
-  });
+  const likesData = await fetch(urlForLikes).then((response) => response.json()).then((data) => data);
 
   likesData.forEach((like) => {
     const food = foodByChina.find((food) => food.id === like.item_id);
@@ -69,9 +59,6 @@ const foodByChinaList = async () => {
       food.likes = like.likes;
     }
   });
-
-  
-  
   return foodByChina;
 };
 
