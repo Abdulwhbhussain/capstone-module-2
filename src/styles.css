@@ -38,7 +38,7 @@ body {
   align-items: center;
 }
 
-nav>ul {
+nav > ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -46,7 +46,7 @@ nav>ul {
   padding: 10px;
 }
 
-nav>ul>li {
+nav > ul > li {
   margin: 0 15px;
 }
 
