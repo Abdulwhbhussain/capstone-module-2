@@ -167,6 +167,52 @@ h5 {
   transform-origin: 100% 100%;
 }
 
+/* Comments Popup Container Background with Blur Effect */
+.popup-container-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Comments Popup Container */
+.popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+  width: 75vw;
+  height: 85vh;
+  background-color: #fff;
+  border-radius: 0px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  overflow: scroll;
+}
+
+/* Comments Popup Custom Close Button */
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Popup Image */
+.popup-image {
+  width: 40%;
+  height: 30%;
+  object-fit: fill;
+}
 
 /* media query for mobile devices */
 @media (max-width: 768px) {
