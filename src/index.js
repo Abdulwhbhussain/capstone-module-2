@@ -77,7 +77,8 @@ const renderFoodGridCards = (foodList) => {
             </div>
             <!-- Food Card Heart Icon -->
             <div class="food-card-heart">
-                <a>Like</a>
+            <div class="heart"></div>
+                
             </div>
             <!-- Food Card Like Count -->
             <div class="food-card-like-count"><p>${food.likes} Likes</p></div>
@@ -108,16 +109,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     for (let likesButton of likesButtons) {
 
       likesButton.addEventListener('click', async () => {
-            console.log('likes button clicked', likesButton);
+            
             const foodCard = likesButton.parentElement;
             const foodTitleElement = likesButton.previousElementSibling;
             const foodTitle = foodTitleElement.innerText;
             const foodCardLikeCount = likesButton.nextElementSibling;
-            console.log('food card like count', foodCardLikeCount);
             const foodTitleId = foodByChina.find((food) => food.name === foodTitle).id;
             const foodArrayIndex = foodByChina.findIndex((food) => food.name === foodTitle);
-            console.log(foodArrayIndex);
-            console.log(foodTitleId);
             // Like Post Request to The Involvement API
             const response = await fetch(urlForLikes, {
                 method: 'POST',
@@ -137,11 +135,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
 
-        if(likesButton.clicked === true) {
-          console.log('clicked');
-        }
-
-        // likeEvent.removeEventListener();
     };
 
   // comments Buttons Event Listener
