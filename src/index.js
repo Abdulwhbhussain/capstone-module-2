@@ -1,5 +1,9 @@
 import './styles.css';
 
+const appID = 'YOYr3lMRRi289YuVJOhS';
+  const urlForLikes = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appID}/likes/`;
+  const urlForComments = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appID}/comments/`;
+
 function appRender() {
   const capstoneContainer = document.getElementsByClassName('capstone-container')[0];
   capstoneContainer.innerHTML = `<!-- Header of the Api Based Web App -->
@@ -46,44 +50,30 @@ const foodByChinaList = async () => {
     };
     foodByChina.push(objFood);
   });
+  // get Likes from the Involvement API
+  let likesData = await fetch(urlForLikes).then((response) => response.json()).then((data) => data);
+  likesData.sort((a, b) => {
+    if(a.item_id > b.item_id) {
+        return 1;
+    }
+
+    if(a.item_id < b.item_id) {
+        return -1;
+    }
+    return 0;
+  });
+
+  likesData.forEach((like) => {
+    const food = foodByChina.find((food) => food.id === like.item_id);
+    if(food) {
+      food.likes = like.likes;
+    }
+  });
+
+  
+  
   return foodByChina;
 };
-
-// const foodByAmericaList = async () => {
-//   const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=American');
-//   const data = await response.json();
-//   const americanFoods = data.meals;
-
-//   const foodByAmerica = [];
-//   americanFoods.forEach((food) => {
-//     const objFood = {
-//       count: foodByAmerica.length + 1,
-//       name: food.strMeal,
-//       image: food.strMealThumb,
-//       id: food.idMeal,
-//     };
-//     foodByAmerica.push(objFood);
-//   });
-//   return foodByAmerica;
-// };
-
-// const foodByKenyaList = async () => {
-//   const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=Kenyan');
-//   const data = await response.json();
-//   const kenyanFoods = data.meals;
-
-//   const foodByKenya = [];
-//   kenyanFoods.forEach((food) => {
-//     const objFood = {
-//       count: foodByKenya.length + 1,
-//       name: food.strMeal,
-//       image: food.strMealThumb,
-//       id: food.idMeal,
-//     };
-//     foodByKenya.push(objFood);
-//   });
-//   return foodByKenya;
-// };
 
 // Render Food Grid Cards
 const renderFoodGridCards = (foodList) => {
@@ -96,8 +86,18 @@ const renderFoodGridCards = (foodList) => {
                 <img src="${food.image}" alt="${food.name}">
             </div>
             <div class="food-card-title">
-                <h3>${food.name}</h3>
+                <h3>${food.name}</h3> 
             </div>
+            <!-- Food Card Heart Icon -->
+            <div class="food-card-heart">
+                <a>Like</a>
+            </div>
+            <!-- Food Card Like Count -->
+            <div class="food-card-like-count"><p>${food.likes} Likes</p></div>
+            <!-- Food card Comments Button -->
+            
+                <button class="food-card-comments">Comments</button>
+            
         `;
     foodGrid.appendChild(foodCard);
   });
@@ -107,8 +107,59 @@ document.addEventListener('DOMContentLoaded', async () => {
   appRender();
 
   const foodByChina = await foodByChinaList();
-  //   const foodByAmerica = await foodByAmericaList();
-  //   const foodByKenya = await foodByKenyaList();
+
+  console.log(foodByChina);
 
   renderFoodGridCards(foodByChina);
+
+  // Likes Buttons Event Listener
+    const likesButtons = document.querySelectorAll('.food-card-heart');
+    for (let likesButton of likesButtons) {
+
+      likesButton.addEventListener('click', async () => {
+            console.log('likes button clicked', likesButton);
+            const foodCard = likesButton.parentElement;
+            const foodTitleElement = likesButton.previousElementSibling;
+            const foodTitle = foodTitleElement.innerText;
+            const foodCardLikeCount = likesButton.nextElementSibling;
+            console.log('food card like count', foodCardLikeCount);
+            const foodTitleId = foodByChina.find((food) => food.name === foodTitle).id;
+            const foodArrayIndex = foodByChina.findIndex((food) => food.name === foodTitle);
+            console.log(foodArrayIndex);
+            console.log(foodTitleId);
+            // Like Post Request to The Involvement API
+            const response = await fetch(urlForLikes, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    item_id: foodTitleId,
+                }),
+            });
+            const data = await response.text();
+            if (data === 'Created') {
+                foodByChina[foodArrayIndex].likes += 1;
+                console.log(foodByChina[foodArrayIndex].likes);
+                console.log(foodCardLikeCount)
+                foodCardLikeCount.innerHTML = `<p>${foodByChina[foodArrayIndex].likes} Likes</p>`;
+            }
+        });
+
+        if(likesButton.clicked === true) {
+          console.log('clicked');
+        }
+
+        // likeEvent.removeEventListener();
+    };
+
+  // comments Buttons Event Listener
+    const commentsButtons = document.querySelectorAll('.food-card-comments');
+    for (let commentsButton of commentsButtons) {
+        commentsButton.addEventListener('click', () => {
+            console.log('comments button clicked', commentsButton);
+        });
+    };
+    
+
 });

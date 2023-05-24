@@ -38,7 +38,7 @@ body {
   align-items: center;
 }
 
-nav > ul {
+nav>ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -46,7 +46,7 @@ nav > ul {
   padding: 10px;
 }
 
-nav > ul > li {
+nav>ul>li {
   margin: 0 15px;
 }
 
@@ -58,6 +58,7 @@ a {
 a:hover {
   font-weight: bold;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 main {
@@ -67,11 +68,8 @@ main {
   width: 90%;
   display: grid;
 
-  /* Define Auto Row size */
-  grid-auto-rows: 100px;
-
   /* Define our columns */
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: 1fr 1fr 1fr;
   column-gap: 5em;
   row-gap: 2em;
 }
@@ -91,6 +89,20 @@ main {
   align-items: center;
 }
 
+.food-card {
+  background-color: #fff;
+  border: 1px solid #333;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  padding: 0 1em;
+  position: relative;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
 img {
   width: 90%;
   height: 100px;
@@ -107,4 +119,11 @@ h5 {
 
 .color {
   color: darkred;
+}
+
+/* media query for mobile devices */
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
 }
