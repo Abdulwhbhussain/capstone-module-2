@@ -1,7 +1,9 @@
 #  Capstone-module-2 
+# Meals DB - Webapp built on external API
 <a name="readme-top"></a>
  # 📗 Table of Contents
 - [Capstone-module-2](#capstone-module-2)
+- [Meals DB - Webapp built on external API](#meals-db---webapp-built-on-external-api)
 - [📗 Table of Contents](#-table-of-contents)
 - [📖 Capstone-module-2 ](#-capstone-module-2-)
   - [🛠 Built With ](#-built-with-)
@@ -48,8 +50,6 @@
 - Webpack
 - APIs
 - Jest 
-- Gitflow
-- Version Control (Git)
  
 <!-- Features -->
 ### Key Features <a name="key-features"></a>
@@ -64,14 +64,14 @@
 
 <!-- LIVE DEMO -->
 ## 🚀 Live Demo <a name="live-demo"></a>
- [Coming Soon](#)
+ [Meals DB - Webapp built on external API](https://abdulwhbhussain.github.io/capstone-module-2/)
 
 ## 💻 Getting Started <a name="getting-started"></a>
 clone from repository: https://github.com/Abdulwhbhussain/capstone-module-2.git
 
 ### Prerequisites
 In order to run this project you need to:
-- Install GIt
+- Install Git
 - Install Live server VScode extension and run Go Live
 - Install a Command Line Interface to clone project-Git bash/Terminal
 
@@ -79,7 +79,6 @@ In order to run this project you need to:
 ### Clone this repository  
 
 ```bash
-```bashw
 $ git clone https://github.com/Abdulwhbhussain/capstone-module-2.git
 $ cd capstone-module-2
 ```
@@ -112,14 +111,15 @@ Install this project with:
 
 ### Run tests
 
-To run linters tests, run the following command: 
-npx hint .
-npx stylelint "**/*.{css,scss}"
-npx eslint .
+```bash
+$ npm run test
+```
 
 ### Deployment
 
-It will be deployed after merge
+<a name="Deployment"></a>
+ [Meals DB - Webapp built on external API](https://abdulwhbhussain.github.io/capstone-module-2/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
