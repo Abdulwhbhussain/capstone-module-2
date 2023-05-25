@@ -142,7 +142,6 @@ const popupContainer = (foodObject) => {
     `;
 
     popupContainerBackground.appendChild(popupContainer);
-
     document.body.appendChild(popupContainerBackground);
     document.querySelector('.close-button').addEventListener('click', () => {
         popupContainerBackground.remove();
@@ -192,8 +191,7 @@ const renderFoodGridCards = (foodList) => {
             <div class="food-card-like-count"><p>${food.likes} Likes</p></div>
             <!-- Food card Comments Button -->
             
-                <button class="food-card-comments">Comments</button>
-            
+                <button class="food-card-comments">Comments</button>            
         `;
     foodGrid.appendChild(foodCard);
   });
