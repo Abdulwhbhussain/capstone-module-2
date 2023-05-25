@@ -12,7 +12,7 @@ describe('Testing Items Counter', () => {
   afterEach(() => {
     document.body.innerHTML = '';
   });
-  test('should render the counter', () => {
+  test('should render the Correct Items counter on HomePage', () => {
     const objectFoods = [
       {
           "count": 1,
@@ -311,7 +311,7 @@ describe('Testing Comments Counter', () => {
   afterEach(() => {
     document.body.innerHTML = '';
   });
-  test('should render the counter', () => {
+  test('should render the Correct Comments counter', () => {
     const objectFoods = [
       {
           "count": 1,
