@@ -1,4 +1,4 @@
- // Likes Buttons Event Listener
+ // Likes Buttons Event Listener 
  const likesButtons = document.querySelectorAll('.food-card-heart');
  for (let likesButton of likesButtons) {
 
@@ -28,7 +28,6 @@
              foodCardLikeCount.innerHTML = `<p>${foodByChina[foodArrayIndex].likes} Likes</p>`;
          }
      });
-
  };
 
  export default likesButtons;

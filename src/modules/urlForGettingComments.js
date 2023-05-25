@@ -7,7 +7,6 @@ foodByChina.forEach( async (food) => {
 });
 return foodByChina;
 
-
 // Post Comments Functions 
 const addComment = async (date, id, name, comment) => {
   const requestToResponse = await fetch(urlForComments, {
