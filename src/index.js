@@ -147,8 +147,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       likesButton.addEventListener('click', async () => {
             
-            const foodCard = likesButton.parentElement;
-            const foodTitleElement = likesButton.previousElementSibling;
+            likesButton.style.color = '#fc2e5a';
+            const foodTitleElement = likesButton.parentElement.previousElementSibling.firstElementChild;
             const foodTitle = foodTitleElement.innerText;
             const foodCardLikeCount = likesButton.nextElementSibling;
             const foodTitleId = foodByChina.find((food) => food.name === foodTitle).id;
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     for (let commentsButton of commentsButtons) {
         commentsButton.addEventListener('click', () => {
             console.log('comments button clicked', commentsButton);
-            const foodTitleElement = commentsButton.previousElementSibling.previousElementSibling.previousElementSibling;
+            const foodTitleElement = commentsButton.previousElementSibling.firstElementChild.firstElementChild;
             const foodTitle = foodTitleElement.innerText;
             const foodArrayIndex = foodByChina.findIndex((food) => food.name === foodTitle);
             // create popup

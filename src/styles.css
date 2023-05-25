@@ -38,6 +38,10 @@ body {
   align-items: center;
 }
 
+.logo > p {
+  font-size: 1.5rem
+}
+
 nav > ul {
   display: flex;
   justify-content: space-between;
@@ -53,6 +57,7 @@ nav > ul > li {
 a {
   text-decoration: none;
   color: #333 !important;
+  font-size: 1.5rem;
 }
 
 a:hover {
@@ -89,9 +94,13 @@ main {
   align-items: center;
 }
 
+.footer-container > p {
+  font-size: 1.5rem;
+}
+
 .food-card {
   background-color: #fff;
-  border: 1px solid #333;
+  /* border: 1px solid #333; */
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   padding: 0 1em;
   position: relative;
@@ -103,69 +112,77 @@ main {
   align-items: center;
 }
 
+.food-card-image {
+  min-width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid #333; */
+}
+
 img {
   width: 90%;
-  height: 100px;
+  height: 250px;
   display: block;
   margin: 0;
   padding: 0;
-  border: 0;
-  object-fit: fill;
+  /* border: 3px solid #333; */
 }
 
 h5 {
   border: 1px solid #333;
 }
 
-.color {
-  color: darkred;
-}
-
-.heart {
-  position: relative;
-  width: 100px;
-  height: 90px;
-  float: left;
+/* Heart SVG Styling */
+.food-card-heart {
   cursor: pointer;
-}
-
-.heart::before,
-.heart::after {
-  position: absolute;
-  content: "";
-  left: 50px;
-  top: 0;
+  font-size: 1.5rem;
+  color: #333;
   width: 50px;
-  height: 80px;
-  background: #fc2e5a;
-  -moz-border-radius: 50px 50px 0 0;
-  border-radius: 50px 50px 0 0;
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  -webkit-transform-origin: 0 100%;
-  -moz-transform-origin: 0 100%;
-  -ms-transform-origin: 0 100%;
-  -o-transform-origin: 0 100%;
-  transform-origin: 0 100%;
-
-  /* border: 3px solid #333; */
+  height: 50px;
 }
 
-.heart::after {
-  left: 0;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-  -webkit-transform-origin: 100% 100%;
-  -moz-transform-origin: 100% 100%;
-  -ms-transform-origin: 100% 100%;
-  -o-transform-origin: 100% 100%;
-  transform-origin: 100% 100%;
+.food-card-heart:hover {
+  color: #fc2e5a;
+}
+
+.title-icon-likes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  column-gap: 20%;
+  height: 100px;
+  width: 100%;
+  /* border: 1px solid #333; */
+  font-size: 1.5rem;
+}
+
+.icon-likes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* border: 1px solid #333; */
+  row-gap: 10px;
+}
+
+/* Food Card Comments Button Styling */
+.food-card-comments {
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: #333;
+  width: 190px;
+  height: 60px;
+  background: #fff;
+  border: 3px solid #333;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.food-card-comments:hover {
+  color: #fc2e5a;
 }
 
 /* Comments Popup Container Background with Blur Effect */
@@ -213,6 +230,13 @@ h5 {
   width: 40%;
   height: 30%;
   object-fit: fill;
+}
+
+/* media query for the medium devices */
+@media (max-width: 1024px) {
+  main {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /* media query for mobile devices */

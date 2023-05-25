@@ -4,7 +4,7 @@ function appRender() {
     <header class="header-container">
       <!-- Logo of the Api Based Web App -->
       <div class="logo">
-        <p>The Meals DB</p>
+        <p>Meals</p>
       </div>
       <!-- Navbar of The Api based web app -->
       <nav>
