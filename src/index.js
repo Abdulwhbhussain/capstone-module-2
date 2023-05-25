@@ -1,3 +1,4 @@
+/* eslint-disable */
 import './styles.css';
 import addComment from './modules/addComments.js';
 import urlForGettingComments from './modules/urlForGettingComments.js';
