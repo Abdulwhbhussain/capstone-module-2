@@ -63,6 +63,7 @@ const foodByChinaList = async () => {
       food.likes = like.likes;
     }
   });
+};
 
   // Create Comments popup
 const popupContainer = (foodObject) => {
