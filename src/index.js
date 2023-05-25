@@ -1,39 +1,11 @@
 import './styles.css';
+import appRender from './modules/appRender';
+import renderFoodGridCards from './modules/renderFoodGridCards';
+import commentsObjectRender from './modules/commentsObjectRender';
 
 const appID = 'YOYr3lMRRi289YuVJOhS';
 const urlForLikes = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appID}/likes/`;
 const urlForComments = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appID}/comments`;
-
-function appRender() {
-  const capstoneContainer = document.getElementsByClassName('capstone-container')[0];
-  capstoneContainer.innerHTML = `<!-- Header of the Api Based Web App -->
-    <header class="header-container">
-      <!-- Logo of the Api Based Web App -->
-      <div class="logo">
-        <p>The Meals DB</p>
-      </div>
-      <!-- Navbar of The Api based web app -->
-      <nav>
-        <ul>
-          <li><a href="#">Chinese</a></li>
-          <li><a href="#">American</a></li>
-          <li><a href="#">Kenyan</a></li>
-        </ul>
-      </nav>
-    </header>
-    <!-- Main Content of the Api Based Web App -->
-    <main>
-      <!-- Section of the Api Based Web App -->
-      
-    </main>
-    <!-- Footer of the Api Based Web App -->
-    <footer class="footer-container">
-      <p>© Microverseinc Created by
-      <a href="https://github.com/Abdulwhbhussain">Abdul Wahab |</a>
-      <a href="https://github.com/Enoisong/">Enobong Isong</a>
-      under MIT License</p>
-    </footer>`;
-}
 
 const foodByChinaList = async () => {
   const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=Chinese');
@@ -88,19 +60,6 @@ const addComment = async (date, id, name, comment) => {
     return data;
     }
 }
-
-// comments Render
-const commentsObjectRender = (commentsArray) => {
-    const popupComments = document.createElement('div');
-    popupComments.classList.add('popup-comments');
-    const comments = commentsArray.forEach((comment) => {
-        const commentElement = document.createElement('div');
-        commentElement.classList.add('individual-comment');
-        commentElement.innerText = comment.comment;
-        popupComments.appendChild(commentElement);
-    });
-    return popupComments.innerHTML;
-};
 
 // Create Comments popup
 const popupContainer = (foodObject) => {
@@ -169,34 +128,6 @@ const popupContainer = (foodObject) => {
     });
 };
 
-// Render Food Grid Cards
-const renderFoodGridCards = (foodList) => {
-  const foodGrid = document.querySelectorAll('main')[0];
-  foodList.forEach((food) => {
-    const foodCard = document.createElement('div');
-    foodCard.classList.add('food-card');
-    foodCard.innerHTML = `
-            <div class="food-card-image">
-                <img src="${food.image}" alt="${food.name}">
-            </div>
-            <div class="food-card-title">
-                <h3>${food.name}</h3> 
-            </div>
-            <!-- Food Card Heart Icon -->
-            <div class="food-card-heart">
-            <div class="heart"></div>
-                
-            </div>
-            <!-- Food Card Like Count -->
-            <div class="food-card-like-count"><p>${food.likes} Likes</p></div>
-            <!-- Food card Comments Button -->
-            
-                <button class="food-card-comments">Comments</button>            
-        `;
-    foodGrid.appendChild(foodCard);
-  });
-};
-
 document.addEventListener('DOMContentLoaded', async () => {
   appRender();
 
@@ -209,14 +140,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     foodCount.innerHTML = `Chinese(${foodByChina.length})`;
 
   renderFoodGridCards(foodByChina);
-
-//   createCommentsPopups(foodByChina);
-
-  // Send Comments request to the Involvment Api
-//   const date = new Date();
-//   foodByChina.forEach( async (food) => {
-//     const commentPost = await addComment(date, food.id, 'Enobong', 'testing comments');
-//   });
 
   // Likes Buttons Event Listener
     const likesButtons = document.querySelectorAll('.food-card-heart');
@@ -267,4 +190,4 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 });
 
-export { appRender, renderFoodGridCards, popupContainer, commentsObjectRender };
+export { popupContainer };
