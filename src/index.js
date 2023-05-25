@@ -95,8 +95,8 @@ const popupContainer = (foodObject) => {
     <div class="add-comment">
         <h2>Add a Comment</h2>
         <form class="add-comment-form">
-        <input type="text" name="name" id="name" placeholder="Your Name" />
-        <textArea type="text" name="comment" id="comment" placeholder="Your Insights"></textArea>
+        <input type="text" name="name" id="name" placeholder="Your Name" required/>
+        <textArea type="text" name="comment" id="comment" placeholder="Your Insights" required></textArea>
         <button type="submit" class="add-comment-button">Comment</button>
         </form>
     </div>
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     foodCount.innerHTML = `Chinese(${foodByChina.length})`;
 
   renderFoodGridCards(foodByChina);
-});
+
 //   createCommentsPopups(foodByChina);
 
   // Send Comments request to the Involvment Api
@@ -192,5 +192,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             // create popup
             popupContainer(foodByChina[foodArrayIndex]);
         });
-    }
-  };
+    };
+    
+
+});
+
+export { appRender, renderFoodGridCards, popupContainer, commentsObjectRender };
