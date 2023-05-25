@@ -39,7 +39,7 @@ body {
 }
 
 .logo > p {
-  font-size: 1.5rem
+  font-size: 1.5rem;
 }
 
 nav > ul {
@@ -100,6 +100,7 @@ main {
 
 .food-card {
   background-color: #fff;
+
   /* border: 1px solid #333; */
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   padding: 0 1em;
@@ -118,6 +119,7 @@ main {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
   /* border: 1px solid #333; */
 }
 
@@ -127,6 +129,7 @@ img {
   display: block;
   margin: 0;
   padding: 0;
+
   /* border: 3px solid #333; */
 }
 
@@ -155,6 +158,7 @@ h5 {
   column-gap: 20%;
   height: 100px;
   width: 100%;
+
   /* border: 1px solid #333; */
   font-size: 1.5rem;
 }
@@ -164,6 +168,7 @@ h5 {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+
   /* border: 1px solid #333; */
   row-gap: 10px;
 }
@@ -236,8 +241,10 @@ h5 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
   /* border: 1px solid #333; */
   min-width: 80%;
+
   /* border: 2px solid #333; */
   margin: 20px auto;
   height: auto;
@@ -265,6 +272,7 @@ h5 {
   font-weight: bold;
   margin: 0;
   padding: 0;
+
   /* border: 1px solid #333; */
 }
 
@@ -285,12 +293,14 @@ h5 {
   align-items: center;
   column-gap: 20px;
   width: 100%;
+
   /* border: 1px solid #333; */
 }
 
 span {
   font-size: 1.1rem;
   font-weight: bold;
+
   /* border: 1px solid #333; */
 }
 
@@ -352,7 +362,7 @@ input {
   padding: 5px;
 }
 
-textArea {
+textarea {
   width: 50%;
   height: 100px;
   border: 3px solid #333;
@@ -385,17 +395,16 @@ textArea {
   }
 
   .logo > p {
-    font-size: 1.1rem
+    font-size: 1.1rem;
   }
-  
+
   a {
     font-size: 1.1rem;
   }
-  
+
   .footer-container > p {
     font-size: 1.1rem;
   }
-  
 }
 
 /* media query for mobile devices */
@@ -405,13 +414,13 @@ textArea {
   }
 
   .logo > p {
-    font-size: 0.8rem
+    font-size: 0.8rem;
   }
-  
+
   a {
     font-size: 0.8rem;
   }
-  
+
   .footer-container > p {
     font-size: 0.8rem;
   }
