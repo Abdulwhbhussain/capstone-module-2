@@ -1,4 +1,8 @@
 import './styles.css';
+import addComment from './modules/addComments.js';
+import urlForGettingComments from './modules/urlForGettingComments.js';
+import commentsObjectRender from './modules/commentsObjectRender.js';
+import likesButtons from './modules/likesButton';
 
 const appID = 'YOYr3lMRRi289YuVJOhS';
 const urlForLikes = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${appID}/likes/`;
@@ -60,49 +64,7 @@ const foodByChinaList = async () => {
     }
   });
 
-  // get Comments from the Involvement API
-  const urlForGettingComments = urlForComments + '?item_id=';
-  foodByChina.forEach( async (food) => {
-    const url = urlForGettingComments + food.id;
-    const comments = await fetch(url).then((response) => response.json()).then((data) => data);
-    food.comments = comments;
-  });
-  return foodByChina;
-};
-
-// Post Comments Functions 
-const addComment = async (date, id, name, comment) => {
-    const requestToResponse = await fetch(urlForComments, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            item_id: id,
-            username: name,
-            comment: `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()} ${name}: ${comment}`,
-        }),
-    });
-    const data = await requestToResponse.text();
-    if (data === 'Created') {
-    return data;
-    }
-}
-
-// comments Render
-const commentsObjectRender = (commentsArray) => {
-    const popupComments = document.createElement('div');
-    popupComments.classList.add('popup-comments');
-    const comments = commentsArray.forEach((comment) => {
-        const commentElement = document.createElement('div');
-        commentElement.classList.add('individual-comment');
-        commentElement.innerText = comment.comment;
-        popupComments.appendChild(commentElement);
-    });
-    return popupComments.innerHTML;
-};
-
-// Create Comments popup
+  // Create Comments popup
 const popupContainer = (foodObject) => {
     // Background blur
     const popupContainerBackground = document.createElement('div');
@@ -209,7 +171,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     foodCount.innerHTML = `Chinese(${foodByChina.length})`;
 
   renderFoodGridCards(foodByChina);
-
+});
 //   createCommentsPopups(foodByChina);
 
   // Send Comments request to the Involvment Api
@@ -218,38 +180,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 //     const commentPost = await addComment(date, food.id, 'Enobong', 'testing comments');
 //   });
 
-  // Likes Buttons Event Listener
-    const likesButtons = document.querySelectorAll('.food-card-heart');
-    for (let likesButton of likesButtons) {
-
-      likesButton.addEventListener('click', async () => {
-            
-            const foodCard = likesButton.parentElement;
-            const foodTitleElement = likesButton.previousElementSibling;
-            const foodTitle = foodTitleElement.innerText;
-            const foodCardLikeCount = likesButton.nextElementSibling;
-            const foodTitleId = foodByChina.find((food) => food.name === foodTitle).id;
-            const foodArrayIndex = foodByChina.findIndex((food) => food.name === foodTitle);
-            // Like Post Request to The Involvement API
-            const response = await fetch(urlForLikes, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    item_id: foodTitleId,
-                }),
-            });
-            const data = await response.text();
-            if (data === 'Created') {
-                foodByChina[foodArrayIndex].likes += 1;
-                console.log(foodByChina[foodArrayIndex].likes);
-                console.log(foodCardLikeCount)
-                foodCardLikeCount.innerHTML = `<p>${foodByChina[foodArrayIndex].likes} Likes</p>`;
-            }
-        });
-
-    };
 
   // comments Buttons Event Listener
     const commentsButtons = document.querySelectorAll('.food-card-comments');
@@ -262,7 +192,5 @@ document.addEventListener('DOMContentLoaded', async () => {
             // create popup
             popupContainer(foodByChina[foodArrayIndex]);
         });
-    };
-    
-
-});
+    }
+  };
