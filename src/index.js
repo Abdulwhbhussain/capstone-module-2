@@ -93,7 +93,7 @@ const popupContainer = (foodObject) => {
         <h2>Add a Comment</h2>
         <form class="add-comment-form">
         <input type="text" name="name" id="name" placeholder="Your Name" required/>
-        <textArea type="text" name="comment" id="comment" placeholder="Your Insights" required></textArea>
+        <textArea type="text" name="comment" id="comment" placeholder="Your Insights" cols=50 maxLength=500 required></textArea>
         <button type="submit" class="add-comment-button">Comment</button>
         </form>
     </div>

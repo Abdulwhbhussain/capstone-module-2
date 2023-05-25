@@ -182,7 +182,7 @@ h5 {
 }
 
 .food-card-comments:hover {
-  color: #fc2e5a;
+  color: goldenrod;
 }
 
 /* Comments Popup Container Background with Blur Effect */
@@ -216,20 +216,166 @@ h5 {
 /* Comments Popup Custom Close Button */
 .close-button {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 5px;
+  right: 10px;
   margin: 10px;
-  padding: 10px;
+  padding: 0;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 3.5rem;
   color: #333;
+  background: #fff;
+  border: none;
+}
+
+.close-button:hover {
+  color: goldenrod;
+}
+
+.popup-image-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid #333; */
+  min-width: 80%;
+  /* border: 2px solid #333; */
+  margin: 20px auto;
+  height: auto;
 }
 
 /* Popup Image */
 .popup-image {
-  width: 40%;
-  height: 30%;
+  width: 50vw;
+  height: 60vh;
   object-fit: fill;
+}
+
+.popup-name-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.popup-name-container > h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+  /* border: 1px solid #333; */
+}
+
+.popup-details-container {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
+}
+
+.popup-details-upper,
+.popup-details-lower {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 20px;
+  width: 100%;
+  /* border: 1px solid #333; */
+}
+
+span {
+  font-size: 1.1rem;
+  font-weight: bold;
+  /* border: 1px solid #333; */
+}
+
+.popup-comments-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-comments-container > h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.popup-comments {
+  margin-top: 10px;
+}
+
+.individual-comment {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.add-comment {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.add-comment > h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.add-comment-form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 50%;
+  height: 30px;
+  border: 3px solid #333;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+textArea {
+  width: 50%;
+  height: 100px;
+  border: 3px solid #333;
+  border-radius: 5px;
+  padding: 5px;
+  resize: none;
+}
+
+.add-comment-button {
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #333;
+  width: auto;
+  height: auto;
+  background: #fff;
+  border: 3px solid #333;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  padding: 5px 10px;
+}
+
+.add-comment-button:hover {
+  color: goldenrod;
 }
 
 /* media query for the medium devices */
@@ -268,5 +414,9 @@ h5 {
   
   .footer-container > p {
     font-size: 0.8rem;
+  }
+
+  .close-button {
+    font-size: 2rem;
   }
 }
