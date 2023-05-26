@@ -2,6 +2,7 @@
 // Need Mocks and Mutation of DOM Elements and Side Effects
 
 import { appRender, renderFoodGridCards, popupContainer, commentsObjectRender } from "../__mocks__/index.js";
+import '../../jest.config.js';
 
 describe('Testing Items Counter', () => {
   beforeEach(() => {

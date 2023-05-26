@@ -128,7 +128,7 @@ const popupContainer = (foodObject) => {
     });
 };
 
-document.addEventListener('DOMContentLoaded', async () => {
+const appExe = document.addEventListener('DOMContentLoaded', async () => {
   appRender();
 
   const foodByChina = await foodByChinaList();
@@ -190,4 +190,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 });
 
-export { popupContainer };
+appExe();
+
+export default appExe;
