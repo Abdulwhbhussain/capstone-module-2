@@ -59,6 +59,7 @@ const foodByAmericaList = async () => {
   });
   // get Likes from the Involvement API
   const likesData = await fetch(urlForLikes).then((response) => response.json()).then((data) => data);
+  console.log(likesData, 'likesData for America');
 
   likesData.forEach((like) => {
     const food = foodByAmerica.find((food) => food.id === like.item_id);
@@ -95,6 +96,8 @@ const foodByRussiaList = async () => {
   // get Likes from the Involvement API
   const likesData = await fetch(urlForLikes).then((response) => response.json()).then((data) => data);
 
+  console.log(likesData, 'likesData for Russia');
+   
   likesData.forEach((like) => {
     const food = foodByRussia.find((food) => food.id === like.item_id);
     if(food) {
@@ -202,11 +205,37 @@ const appExe = document.addEventListener('DOMContentLoaded', async () => {
   appRender();
 
   const foodByChina = await foodByChinaList();
-  const foodByAmerica = await foodByAmericaList();
+  // const foodByAmerica = await foodByAmericaList();
   const foodByRussia = await foodByRussiaList();
 
+  // Auto Liking using Fetch API
+  // foodByAmerica.forEach( async (food) => {
+  //   const url = urlForLikes;
+  //   const response = await fetch(urlForLikes, {
+  //     method: 'POST',
+  //     headers: {
+  //         'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //         item_id: food.id,
+  //     }),
+  // });
+  // const data = await response.text();
+  // if (data === 'Created') {
+  //   console.log('Liked');
+  // }
+  // });
+
+    // Likes Count Random Auto
+  // foodByAmerica.forEach((food) => {
+  //   const randomLikes = Math.floor(Math.random() * 100);
+  //   food.likes = randomLikes;
+  // });
+
+  
+
   console.log(foodByChina);
-  console.log(foodByAmerica);
+  // console.log(foodByAmerica);
   console.log(foodByRussia);
 
   // Show items count on homepage Header
@@ -216,16 +245,20 @@ const appExe = document.addEventListener('DOMContentLoaded', async () => {
   renderFoodGridCards(foodByChina);
 
   // Show items count on homepage Header
-  const foodCountAmerican = document.querySelector('nav > ul > li > .american');
-  foodCountAmerican.innerHTML = `American(${foodByAmerica.length})`;
+//   const foodCountAmerican = document.querySelector('nav > ul > li > .american');
+//   foodCountAmerican.innerHTML = `American(${foodByAmerica.length})`;
 
-renderFoodGridCards(foodByAmerica);
+// renderFoodGridCards(foodByAmerica);
 
 // Show items count on homepage Header
 const foodCountRussian = document.querySelector('nav > ul > li > .russian');
 foodCountRussian.innerHTML = `Russian(${foodByRussia.length})`;
 
 renderFoodGridCards(foodByRussia);
+
+console.log(document.querySelectorAll('.food-card-heart'));
+
+
 
   // Likes Buttons Event Listener
     const likesButtons = document.querySelectorAll('.food-card-heart');
