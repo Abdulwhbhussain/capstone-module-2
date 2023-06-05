@@ -9,9 +9,9 @@ function appRender() {
       <!-- Navbar of The Api based web app -->
       <nav>
         <ul>
-          <li><a href="#">Chinese</a></li>
-          <li><a href="#">American</a></li>
-          <li><a href="#">Kenyan</a></li>
+          <li><a class="chinese" href="#">Chinese</a></li>
+          <li><a class="american" href="#">American</a></li>
+          <li><a class="russian" href="#">Russian</a></li>
         </ul>
       </nav>
     </header>

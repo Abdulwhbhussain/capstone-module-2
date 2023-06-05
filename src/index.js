@@ -42,6 +42,76 @@ const foodByChinaList = async () => {
   return foodByChina;
 };
 
+const foodByAmericaList = async () => {
+  const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=American');
+  const data = await response.json();
+  const americanFoods = data.meals;
+
+  const foodByAmerica = [];
+  americanFoods.forEach((food) => {
+    const objFood = {
+      count: foodByAmerica.length + 1,
+      name: food.strMeal,
+      image: food.strMealThumb,
+      id: food.idMeal,
+    };
+    foodByAmerica.push(objFood);
+  });
+  // get Likes from the Involvement API
+  const likesData = await fetch(urlForLikes).then((response) => response.json()).then((data) => data);
+
+  likesData.forEach((like) => {
+    const food = foodByAmerica.find((food) => food.id === like.item_id);
+    if(food) {
+      food.likes = like.likes;
+    }
+  });
+
+  // get Comments from the Involvement API
+  const urlForGettingComments = urlForComments + '?item_id=';
+  foodByAmerica.forEach( async (food) => {
+    const url = urlForGettingComments + food.id;
+    const comments = await fetch(url).then((response) => response.json()).then((data) => data);
+    food.comments = comments;
+  });
+  return foodByAmerica;
+};
+
+const foodByRussiaList = async () => {
+  const response = await fetch('https://www.themealdb.com/api/json/v1/1/filter.php?a=Russian');
+  const data = await response.json();
+  const russianFoods = data.meals;
+
+  const foodByRussia = [];
+  russianFoods.forEach((food) => {
+    const objFood = {
+      count: foodByRussia.length + 1,
+      name: food.strMeal,
+      image: food.strMealThumb,
+      id: food.idMeal,
+    };
+    foodByRussia.push(objFood);
+  });
+  // get Likes from the Involvement API
+  const likesData = await fetch(urlForLikes).then((response) => response.json()).then((data) => data);
+
+  likesData.forEach((like) => {
+    const food = foodByRussia.find((food) => food.id === like.item_id);
+    if(food) {
+      food.likes = like.likes;
+    }
+  });
+
+  // get Comments from the Involvement API
+  const urlForGettingComments = urlForComments + '?item_id=';
+  foodByRussia.forEach( async (food) => {
+    const url = urlForGettingComments + food.id;
+    const comments = await fetch(url).then((response) => response.json()).then((data) => data);
+    food.comments = comments;
+  });
+  return foodByRussia;
+};
+
 // Post Comments Functions 
 const addComment = async (date, id, name, comment) => {
     const requestToResponse = await fetch(urlForComments, {
@@ -132,14 +202,30 @@ const appExe = document.addEventListener('DOMContentLoaded', async () => {
   appRender();
 
   const foodByChina = await foodByChinaList();
+  const foodByAmerica = await foodByAmericaList();
+  const foodByRussia = await foodByRussiaList();
 
   console.log(foodByChina);
+  console.log(foodByAmerica);
+  console.log(foodByRussia);
 
   // Show items count on homepage Header
-    const foodCount = document.querySelector('nav > ul > li > a');
-    foodCount.innerHTML = `Chinese(${foodByChina.length})`;
+    const foodCountChinese = document.querySelector('nav > ul > li > .chinese');
+    foodCountChinese.innerHTML = `Chinese(${foodByChina.length})`;
 
   renderFoodGridCards(foodByChina);
+
+  // Show items count on homepage Header
+  const foodCountAmerican = document.querySelector('nav > ul > li > .american');
+  foodCountAmerican.innerHTML = `American(${foodByAmerica.length})`;
+
+renderFoodGridCards(foodByAmerica);
+
+// Show items count on homepage Header
+const foodCountRussian = document.querySelector('nav > ul > li > .russian');
+foodCountRussian.innerHTML = `Russian(${foodByRussia.length})`;
+
+renderFoodGridCards(foodByRussia);
 
   // Likes Buttons Event Listener
     const likesButtons = document.querySelectorAll('.food-card-heart');
