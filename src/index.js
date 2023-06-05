@@ -250,6 +250,13 @@ const appExe = document.addEventListener('DOMContentLoaded', async () => {
 
 // renderFoodGridCards(foodByAmerica);
 
+// When Clicked American There should be A Message
+const foodCountAmerican = document.querySelector('nav > ul > li > .american');
+foodCountAmerican.addEventListener('click', () => {
+    alert('Hi Pal! Sorry for Inconvenience. We are working on it.');
+});
+
+
 // Show items count on homepage Header
 const foodCountRussian = document.querySelector('nav > ul > li > .russian');
 foodCountRussian.innerHTML = `Russian(${foodByRussia.length})`;
@@ -260,7 +267,7 @@ console.log(document.querySelectorAll('.food-card-heart'));
 
 
 
-  // Likes Buttons Event Listener
+    // Likes Buttons Event Listener
     const likesButtons = document.querySelectorAll('.food-card-heart');
     for (let likesButton of likesButtons) {
 
@@ -293,7 +300,7 @@ console.log(document.querySelectorAll('.food-card-heart'));
 
     };
 
-  // comments Buttons Event Listener
+    // comments Buttons Event Listener
     const commentsButtons = document.querySelectorAll('.food-card-comments');
     for (let commentsButton of commentsButtons) {
         commentsButton.addEventListener('click', () => {
@@ -305,8 +312,6 @@ console.log(document.querySelectorAll('.food-card-heart'));
             popupContainer(foodByChina[foodArrayIndex]);
         });
     };
-    
-
 });
 
 appExe();
