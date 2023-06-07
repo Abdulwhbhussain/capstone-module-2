@@ -206,7 +206,7 @@ const appExe = document.addEventListener('DOMContentLoaded', async () => {
 
   const foodByChina = await foodByChinaList();
   // const foodByAmerica = await foodByAmericaList();
-  const foodByRussia = await foodByRussiaList();
+  // const foodByRussia = await foodByRussiaList();
 
   // Auto Liking using Fetch API
   // foodByAmerica.forEach( async (food) => {
@@ -236,7 +236,7 @@ const appExe = document.addEventListener('DOMContentLoaded', async () => {
 
   console.log(foodByChina);
   // console.log(foodByAmerica);
-  console.log(foodByRussia);
+  // console.log(foodByRussia);
 
   // Show items count on homepage Header
     const foodCountChinese = document.querySelector('nav > ul > li > .chinese');
@@ -259,11 +259,13 @@ foodCountAmerican.addEventListener('click', () => {
 
 // Show items count on homepage Header
 const foodCountRussian = document.querySelector('nav > ul > li > .russian');
-foodCountRussian.innerHTML = `Russian(${foodByRussia.length})`;
+foodCountRussian.addEventListener('click', () => {
+  alert('Hi Pal! Sorry for Inconvenience. We are working on it.');
+});
 
-renderFoodGridCards(foodByRussia);
+// renderFoodGridCards(foodByRussia);
 
-console.log(document.querySelectorAll('.food-card-heart'));
+// console.log(document.querySelectorAll('.food-card-heart'));
 
 
 
